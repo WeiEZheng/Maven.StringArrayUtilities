@@ -63,7 +63,17 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        Boolean pangramicLower, pangramicUpper,pangramic= true;
+        String arrayString =Arrays.toString(array);
+        for (int i =0;i<26;i++){
+            pangramicLower = arrayString.contains(Character.toString((char)('a'+i)));
+            pangramicUpper = arrayString.contains(Character.toString((char)('A'+i)));
+            if ((pangramicLower == false) && (pangramicUpper == false)) {
+                pangramic=false;
+                break;
+            }
+        }
+        return pangramic;
     }
 
     /**
