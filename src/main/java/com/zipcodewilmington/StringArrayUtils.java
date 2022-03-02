@@ -3,6 +3,7 @@ package com.zipcodewilmington;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by leon on 1/29/18.
@@ -98,9 +99,9 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
         ArrayList <String> arrayCopy = new ArrayList<String>();
-        for (int i=0;i< array.length;i++){
-            if (!array[i].equals(valueToRemove)){
-                arrayCopy.add(array[i]);
+        for (String string :array){
+            if (!string.equals(valueToRemove)){
+                arrayCopy.add(string);
             }
         }
         return arrayCopy.toArray(new String[arrayCopy.size()]);
@@ -111,7 +112,15 @@ public class StringArrayUtils {
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        ArrayList<String> arrayCopy = new ArrayList<String>();
+        for (String string: array) {
+            if (arrayCopy.size() == 0)
+                arrayCopy.add(string);
+            else if (!arrayCopy.get(arrayCopy.size()-1).equals(string)){
+                arrayCopy.add(string);
+            }
+        }
+        return arrayCopy.toArray(new String[arrayCopy.size()]);
     }
 
     /**
