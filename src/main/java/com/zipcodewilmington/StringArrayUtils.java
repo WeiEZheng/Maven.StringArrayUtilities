@@ -97,7 +97,13 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        ArrayList <String> arrayCopy = new ArrayList<String>();
+        for (int i=0;i< array.length;i++){
+            if (!array[i].equals(valueToRemove)){
+                arrayCopy.add(array[i]);
+            }
+        }
+        return arrayCopy.toArray(new String[arrayCopy.size()]);
     }
 
     /**
