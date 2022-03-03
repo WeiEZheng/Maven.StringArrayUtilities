@@ -50,15 +50,21 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        Collections.reverse(Arrays.asList(array));
-        return array;
+//        Collections.reverse(Arrays.asList(array));
+//        return array;
+        //was failing the palindromic test
+        ArrayList <String> arrayCopy = new ArrayList<String>();
+        for (int i= array.length-1;i>= 0;i--)
+            arrayCopy.add(array[i]);
+        return arrayCopy.toArray(new String[arrayCopy.size()]);
     }
 
     /**
      * @param array array of String objects
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
-    public static boolean isPalindromic(String[] array) {return array==StringArrayUtils.reverse(array);}
+    public static boolean isPalindromic(String[] array) {
+        return array.equals(StringArrayUtils.reverse(array));}
 
     /**
      * @param array array of String objects
@@ -128,7 +134,21 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        return null;
+        ArrayList<String> arrayCopy = new ArrayList<String>();
+        String concat="",memory="";
+        for (String string: array) {
+            if (arrayCopy.size() == 0) {
+                arrayCopy.add(string);
+                memory=string;
+            }
+            else if (string.equals(memory)){
+                concat+=memory;
+            }
+            else {
+
+            }
+        }
+        return arrayCopy.toArray(new String[arrayCopy.size()]);
     }
 
 
