@@ -159,7 +159,6 @@ public class StringArrayUtils {
                     arrayCopy.add(array[i]);
             }
         }
-        System.out.println(arrayCopy);
         return arrayCopy.toArray(new String[arrayCopy.size()]);
     }
 
