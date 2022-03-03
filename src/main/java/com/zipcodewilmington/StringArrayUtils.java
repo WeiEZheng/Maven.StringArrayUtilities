@@ -135,19 +135,31 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
         ArrayList<String> arrayCopy = new ArrayList<String>();
-        String concat="",memory="";
-        for (String string: array) {
-            if (arrayCopy.size() == 0) {
-                arrayCopy.add(string);
-                memory=string;
+        String concat="";
+        for (int i=0;i<array.length;i++){
+            if (i== array.length -1) {
+                if (array[i]==array[i-1]) {
+                    concat+=array[i];
+                    arrayCopy.add(concat);
+                }
+                else
+                    arrayCopy.add(array[i]);
             }
-            else if (string.equals(memory)){
-                concat+=memory;
-            }
+            else if (array[i] == array[i+1])
+                concat+=array[i];
             else {
-
+                if (i==0)
+                    arrayCopy.add(array[0]);
+                else if (array[i]==array[i-1]){
+                    concat+=array[i];
+                    arrayCopy.add(concat);
+                    concat="";
+                }
+                else
+                    arrayCopy.add(array[i]);
             }
         }
+        System.out.println(arrayCopy);
         return arrayCopy.toArray(new String[arrayCopy.size()]);
     }
 
